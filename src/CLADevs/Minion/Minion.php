@@ -3,6 +3,7 @@
 namespace CLADevs\Minion;
 
 use CLADevs\Minion\upgrades\HopperInventory;
+use pocketmine\utils\TextFormat as C;
 use pocketmine\block\Block;
 use pocketmine\block\Chest;
 use pocketmine\entity\Human;
@@ -21,7 +22,7 @@ class Minion extends Human{
         $this->setHealth(1);
         $this->setMaxHealth(1);
         $this->setNameTagAlwaysVisible();
-        $this->setNameTag("Miner");
+        $this->setNameTag(C::BOLD."Miner Minion");
         $this->setScale(0.8);
         $this->sendSpawnItems();
     }
@@ -60,11 +61,11 @@ class Minion extends Human{
     }
 
     public function sendSpawnItems(): void{
-        $this->getInventory()->setItemInHand(Item::get(Item::DIAMOND_PICKAXE));
-        $this->getArmorInventory()->setHelmet( Item::get(Item::SKULL, 3));
-        $this->getArmorInventory()->setChestplate(Item::get(Item::LEATHER_CHESTPLATE));
-        $this->getArmorInventory()->setLeggings(Item::get(Item::LEATHER_LEGGINGS));
-        $this->getArmorInventory()->setBoots(Item::get(Item::LEATHER_BOOTS));
+        $this->getInventory()->setItemInHand(Item::get(Item::WOODEN_PICKAXE));
+        $this->getArmorInventory()->setHelmet( Item::get(Item::GOLD_HELMET, 3));
+        $this->getArmorInventory()->setChestplate(Item::get(Item::GOLD_CHESTPLATE));
+        $this->getArmorInventory()->setLeggings(Item::get(Item::GOLD_LEGGINGS));
+        $this->getArmorInventory()->setBoots(Item::get(Item::GOLD_BOOTS));
     }
 
     public function getLookingBlock(): Block{
